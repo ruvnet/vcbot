@@ -55,6 +55,12 @@ initial_prompt = {"message": "Assistant: Hello! I'm your friendly investor bot (
 if "messages" not in st.session_state:
     st.session_state.messages = [system_message, initial_prompt]
 
+# Get the text message from the initial prompt
+text_message = st.session_state.messages[1]["message"]
+
+# Display the text message
+st.write(text_message)
+
 
 # Display all previous messages in a scrollable container
 with col1.container() as scrollable_container:
