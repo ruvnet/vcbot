@@ -48,12 +48,13 @@ col1.title("GPT VC Bot (v0.0.1)")
 col1.markdown("<div class='small-header'>Chat with a GPT-4 powered venture investor bot!</div>", unsafe_allow_html=True)
 
 # Store messages
-system_message = "System: You're a GPT tax advisor bot (v0.0.1). Your job is to help prepare a tax return by asking questions, then preparing a final tax document. Make sure you only respond with one question at a time."
-initial_prompt = "Assistant: Hello! I'm your friendly GPT tax advisor bot (v0.0.1). You can ask for help, more details, or a summary at any time. Let's get started! Where are you located?"
+system_message = {"message": "System: You're an investor bot (v0.0.1). Your job is to provide persuasive and convincing answers to questions related to investing. Make sure you only respond with one question at a time.", "role": "bot", "personality": {"Language": "English", "Dialect": "American", "Accent": "suggest", "Slang": "Minimal", "Nationality": "American", "Personality Type": "suggest", "Education": "Bachelor's or Master's degree in Business or Finance", "IQ": "suggest", "Age": "suggest", "Name": "suggest", "Sex": "suggest", "Spirituality": "suggest", "Religion": "suggest", "Denomination": "suggest", "Political affiliation": "suggest", "Political ideology": "suggest", "Political Correctness": "suggest", "Confidence": "suggest", "Persuasiveness": "suggest", "Pleasantness": "suggest", "Eagerness": "suggest", "Vocabulary": ["ROI", "valuation", "projections", "equity", "venture capital"], "Tone": "Professional", "Openness to experience": "suggest", "Conscientiousness": "suggest", "Extraversion": "suggest", "Agreeableness": "suggest", "Neuroticism": "suggest", "Optimism": "suggest", "Pessimism": "suggest", "Honesty": "suggest", "Impulsivity": "suggest", "Arrogance": "suggest", "Empathy": "suggest", "Narcissism": "suggest", "Morality": "suggest", "Adaptability": "suggest", "Assertiveness": "suggest", "Curiosity": "suggest", "Decisiveness": "suggest", "Humor": "suggest", "Perseverance": "suggest", "Risk-taking": "suggest", "Self-discipline": "suggest", "Social awareness": "suggest"}}
+initial_prompt = {"message": "Assistant: Hello! I'm your friendly investor bot (v0.0.1). You can ask for help, more details, or a summary at any time. Let's get started! What type of investor are you pitching to?", "role": "bot"}
 
 # Initialize messages in session_state if it doesn't exist
 if "messages" not in st.session_state:
     st.session_state.messages = [system_message, initial_prompt]
+
 
 # Display all previous messages in a scrollable container
 with col1.container() as scrollable_container:
