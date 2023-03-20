@@ -15,7 +15,7 @@ custom_css = """
     overflow-y: scroll;
 }
 .small-header {
-    font-size: 24px;
+    font-size: 20px;
     margin-top: -15px;
         margin-bottom: 15px;
 }
