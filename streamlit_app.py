@@ -36,8 +36,8 @@ def get_openai_response(user_input, message_history):
     response = openai.ChatCompletion.create(
         model="gpt-3.5-turbo-0301",
         messages=api_messages,
-        max_tokens=200,
-        temperature=0.1,
+        max_tokens=700,
+        temperature=0.75,
         n=1,
         stream=False
     )
