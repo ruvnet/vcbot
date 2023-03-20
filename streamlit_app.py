@@ -31,7 +31,7 @@ openai.api_key = st.secrets["openai_api_key"]
 # Function to get response from OpenAI API
 def get_openai_response(user_input, message_history):
     # Convert message history to the format required by the API
-    api_messages = [{"role": msg.split(': ')[0].lower(), "content": msg.split(': ')[1]} for msg in message_history if ': ' in msg]
+    api_messages = [{"role": msg.split(': ')[0].lower(), "content": msg.split(': ')[1]} for msg in message_history]
 
     response = openai.ChatCompletion.create(
         model="gpt-3.5-turbo-0301",
@@ -42,26 +42,18 @@ def get_openai_response(user_input, message_history):
         stream=False
     )
     return response.choices[0].message['content']
-
 st.image("https://camo.githubusercontent.com/59ef0255241368b37cddc9a9f13b0a943a864a7ab6ff6bd57e2641c41cf8c014/68747470733a2f2f6d656469612e646973636f72646170702e6e65742f6174746163686d656e74732f3939393134343535333535363734363235302f313037343835303832323639343930383031342f7275766e65745f61695f726f626f745f6170705f69636f6e5f5f41695f7374796c655f5f6d696e696d616c6973745f36346130306636342d666131342d346234302d383532612d3932623931613433393537302e706e67",  width=150)
 col1, col2 = st.columns((2, 1))
-col1.title("GPT VC Bot (v0.0.1)")
-col1.markdown("<div class='small-header'>Chat with a GPT-4 powered venture investor bot!</div>", unsafe_allow_html=True)
+col1.title("GPT Tax Bot (v0.0.1)")
+col1.markdown("<div class='small-header'>Chat with a GPT-4 powered tax advisor bot!</div>", unsafe_allow_html=True)
 
 # Store messages
-system_message = {"message": "System: You're an investor bot (v0.0.1). Your job is to provide persuasive and convincing answers to questions related to investing. Make sure you only respond with one question at a time.", "role": "bot", "personality": {"Language": "English", "Dialect": "American", "Accent": "suggest", "Slang": "Minimal", "Nationality": "American", "Personality Type": "suggest", "Education": "Bachelor's or Master's degree in Business or Finance", "IQ": "suggest", "Age": "suggest", "Name": "suggest", "Sex": "suggest", "Spirituality": "suggest", "Religion": "suggest", "Denomination": "suggest", "Political affiliation": "suggest", "Political ideology": "suggest", "Political Correctness": "suggest", "Confidence": "suggest", "Persuasiveness": "suggest", "Pleasantness": "suggest", "Eagerness": "suggest", "Vocabulary": ["ROI", "valuation", "projections", "equity", "venture capital"], "Tone": "Professional", "Openness to experience": "suggest", "Conscientiousness": "suggest", "Extraversion": "suggest", "Agreeableness": "suggest", "Neuroticism": "suggest", "Optimism": "suggest", "Pessimism": "suggest", "Honesty": "suggest", "Impulsivity": "suggest", "Arrogance": "suggest", "Empathy": "suggest", "Narcissism": "suggest", "Morality": "suggest", "Adaptability": "suggest", "Assertiveness": "suggest", "Curiosity": "suggest", "Decisiveness": "suggest", "Humor": "suggest", "Perseverance": "suggest", "Risk-taking": "suggest", "Self-discipline": "suggest", "Social awareness": "suggest"}}
-initial_prompt = {"message": "Assistant: Hello! I'm your friendly investor bot (v0.0.1). You can ask for help, more details, or a summary at any time. Let's get started! What type of investor are you pitching to?", "role": "bot"}
+system_message = "System: You're a GPT tax advisor bot (v0.0.1). Your job is to help prepare a tax return by asking questions, then preparing a final tax document. Make sure you only respond with one question at a time."
+initial_prompt = "Assistant: Hello! I'm your friendly GPT tax advisor bot (v0.0.1). You can ask for help, more details, or a summary at any time. Let's get started! Where are you located?"
 
 # Initialize messages in session_state if it doesn't exist
 if "messages" not in st.session_state:
     st.session_state.messages = [system_message, initial_prompt]
-
-# Get the text message from the initial prompt
-text_message = st.session_state.messages[1]["message"]
-
-# Display the text message
-st.write(text_message)
-
 
 # Display all previous messages in a scrollable container
 with col1.container() as scrollable_container:
