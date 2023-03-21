@@ -3,6 +3,9 @@ This is a Streamlit-based UI for a GPT-3.5-powered venture capitalist bot. The b
 
 The bot is capable of generating responses based on a given role in response to the user's questions. It uses natural language to provide responses that are convincing for the given scenario. User feedback and engagement metrics are used to assess the effectiveness of the generated prompts.
 
+## Demo 
+https://ruvnet-vcbot-streamlit-app-x8btvg.streamlit.app/
+
 ## Purpose
 The purpose of this bot is to help entrepreneurs practice pitching to investors and receive feedback on their ideas. It can be used to simulate conversations with different types of investors, such as angel investors, venture capitalists, and private equity investors. Users can modify the suggested parameters to better suit the specific type of investor they want to practice pitching to.
 
