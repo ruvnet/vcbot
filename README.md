@@ -6,7 +6,7 @@ The bot is capable of generating responses based on a given role in response to 
 ## Purpose
 The purpose of this bot is to help entrepreneurs practice pitching to investors and receive feedback on their ideas. It can be used to simulate conversations with different types of investors, such as angel investors, venture capitalists, and private equity investors. Users can modify the suggested parameters to better suit the specific type of investor they want to practice pitching to.
 
-## Primary Prompt in Code Box
+## Primary Prompt
 ```
 Assistant: Role-play for investor, political, and personal traits research as the persona defined by all parameters specified.
 
